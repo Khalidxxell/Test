@@ -1,0 +1,38 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class BinarySearch {
+    public static int rank(int key,int []a){
+            int lo=0;
+            int hi=a.length-1;
+           while(lo<=hi){
+                int mid=(lo+hi)/2;
+                if(key<a[mid]) hi=mid-1;
+                else if(key>a[mid]) lo=mid+1;
+                else return a[mid];
+            }
+            return -1;
+    }
+
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        int [] white=new int[8];
+        for(int i=0;i<white.length;i++){
+            white[i]=scan.nextInt();
+        }
+        Arrays.sort(white);
+
+//        for(int i=0;i<white.length;i++) {
+//            System.out.print(white[i]+"   ");
+//        }
+        int key=scan.nextInt();
+        if(rank(key,white)<0){
+            System.out.println("该key不在此数组中");
+        }else{
+            System.out.println("找到key！！");
+        }
+
+
+    }
+}
+
